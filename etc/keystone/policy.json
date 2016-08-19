@@ -7,7 +7,7 @@
     "token_subject": "user_id:%(target.token.user_id)s",
     "admin_or_token_subject": "rule:admin_required or rule:token_subject",
     "service_admin_or_token_subject": "rule:service_or_admin or rule:token_subject",
-
+	"project_admin_required":"role:project_admin and project_id:%(project_id)s",
     "default": "rule:admin_required",
 
     "identity:get_region": "",
@@ -42,19 +42,19 @@
     "identity:delete_project": "rule:admin_required",
 
     "identity:get_user": "rule:admin_or_owner",
-    "identity:list_users": "rule:admin_required",
+    "identity:list_users": "rule:admin_required or role:project_admin",
     "identity:create_user": "rule:admin_required",
     "identity:update_user": "rule:admin_required",
     "identity:delete_user": "rule:admin_required",
     "identity:change_password": "rule:admin_or_owner",
 
     "identity:get_group": "rule:admin_required",
-    "identity:list_groups": "rule:admin_required",
+    "identity:list_groups": "rule:admin_required or role:project_admin",
     "identity:list_groups_for_user": "rule:admin_or_owner",
     "identity:create_group": "rule:admin_required",
     "identity:update_group": "rule:admin_required",
     "identity:delete_group": "rule:admin_required",
-    "identity:list_users_in_group": "rule:admin_required",
+    "identity:list_users_in_group": "rule:admin_required or role:project_admin",
     "identity:remove_user_from_group": "rule:admin_required",
     "identity:check_user_in_group": "rule:admin_required",
     "identity:add_user_to_group": "rule:admin_required",
@@ -90,11 +90,11 @@
 
     "identity:check_grant": "rule:admin_required",
     "identity:list_grants": "rule:admin_required",
-    "identity:create_grant": "rule:admin_required",
-    "identity:revoke_grant": "rule:admin_required",
+    "identity:create_grant": "rule:admin_required or rule:project_admin_required",
+    "identity:revoke_grant": "rule:admin_required or rule:project_admin_required",
 
-    "identity:list_role_assignments": "rule:admin_required",
-    "identity:list_role_assignments_for_tree": "rule:admin_required",
+    "identity:list_role_assignments": "rule:admin_required or role:project_admin",
+    "identity:list_role_assignments_for_tree": "rule:admin_required or role:project_admin",
 
     "identity:get_policy": "rule:admin_required",
     "identity:list_policies": "rule:admin_required",
